@@ -11,13 +11,22 @@ public abstract class Cell {
         value = calculateValue();
     }
     public abstract int calculateValue(); // QUESTION: I wanted private ...
-    public abstract String display(int size);
+    public String display(int size) { // QUESTION: To abstract?
+        this.validate(size);
+        int indent = size - this.getValueSize(); // QUESTIONS
+        String valueView = Integer.toString(this.getValue());
+        return " ".repeat(indent) + valueView + "|"; // Local variable 'view' is redundant. StringBuilder?
+    }
     public int getX(){ // QUESTION: goal of getters?
         return this.x;
     }
 
     public int getY(){
         return this.y;
+    }
+
+    public int getValue(){
+        return this.value;
     }
 
     public int getValueSize(){
