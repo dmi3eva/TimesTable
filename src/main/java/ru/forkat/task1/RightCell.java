@@ -11,7 +11,7 @@ public class RightCell extends Cell {
     }
 
     @Override
-    public String display(int size) {
+    public String getView(int size) {
         this.validate(size);
         int indent = size - this.getValueSize(); // QUESTIONS
         String valueView = Integer.toString(this.getValue());

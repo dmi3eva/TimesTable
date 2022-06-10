@@ -5,13 +5,19 @@ public abstract class Cell {
     private final int y;
     private final int value;
 
+    public Cell() { // QUESTION: Is it possible not to add constructor for heir
+        x = 0;
+        y = 0;
+        value = calculateValue();
+    }
+
     public Cell(int x, int y){
         this.x = x; // QUESTION: shorter?
         this.y = y;
         value = calculateValue();
     }
     public abstract int calculateValue(); // QUESTION: I wanted private ...
-    public String display(int size) { // QUESTION: To abstract?
+    public String getView(int size) { // QUESTION: To abstract?
         this.validate(size);
         int indent = size - this.getValueSize(); // QUESTIONS
         String valueView = Integer.toString(this.getValue());
